@@ -4,7 +4,7 @@ type CheckBoxProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   'onChange'
 > & {
-    disabled: boolean;
+    disabled?: boolean;
     checked: boolean;
     onChange: (value: boolean) => void;
 };

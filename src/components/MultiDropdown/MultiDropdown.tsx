@@ -22,18 +22,6 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = ({
     ...args 
   }) => {
     const [open, setOpen] = React.useState(false)
-    let selected = value.slice();
-
-    function onClickOption (it: Option) {
-      const index = selected.indexOf(it)
-      if (index === -1) {
-        selected = [it]
-      } else {
-        selected = selected.filter(item => item.key !== it.key)
-      }
-
-      onChange(selected)
-    }
 
     return (
       <div>
@@ -49,7 +37,7 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = ({
               {options.map((it) => (
                 <button 
                   key={it.key}
-                  onClick={() => onClickOption(it)}
+                  onClick={() => onChange(value.indexOf(it) ? [...value, it] : value.filter(item => item.key !== it.key))}
                 >
                     {it.value}
                 </button>
