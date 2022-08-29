@@ -1,0 +1,16 @@
+@import '../../../src/styles/variables.scss';
+
+
+.input {
+  @include font500;
+
+  font-size: 18px;
+  border: 0;
+  padding: 12px 15px;
+  height: 84px;
+  flex: 1;
+
+  &:focus {
+    border: 1px solid #518581;
+  }
+}

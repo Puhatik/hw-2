@@ -1,0 +1,69 @@
+@import '../../../src/styles/variables.scss';
+
+.header {
+  @include flexible;
+
+  justify-content: space-between;
+
+  padding: 39px 0;
+  border-bottom: 1px solid $gray-line;
+
+  cursor: pointer;
+
+    .logo {
+      display: flex;
+
+      img {
+        margin-right: 12px;
+        width: 42px;
+        height: 42px;
+      }
+
+      h1 {
+        @include font700;
+        font-size: 32px;
+      }
+    }
+
+    .menu {
+      li {
+        margin-right: 30px;
+        margin-left: 30px;
+        position: relative;
+      }
+
+      li:after {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 70px;
+        height: 3px;
+        background-color: $green;
+        content: "";
+      }
+
+      li:hover,
+      li:active,
+      a:hover,
+      a:active {
+        color: $green;
+      }
+
+      li:hover:after,
+      li:active:after {
+        width: 100%;
+      }
+    }
+  
+    .cart {
+      li {
+        margin-left: 24px;
+      }
+    }  
+
+    li {
+      @include font500;
+      font-size: 18px;
+      display: inline;
+    }
+  }

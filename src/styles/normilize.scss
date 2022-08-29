@@ -1,0 +1,34 @@
+@import "variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'Eudoxus Sans';
+
+  font-style: normal;
+
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+body {
+  color: $black;
+}
+
+a,
+span,
+p,
+b,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $black;
+}
+
+a {
+  text-decoration: none;
+}

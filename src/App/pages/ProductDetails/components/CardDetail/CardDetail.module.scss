@@ -1,0 +1,62 @@
+@import '../../../../../styles/variables.scss';
+
+.card {
+  display: flex;
+  margin-top: 100px;
+
+  img {
+    width: 600px;
+    height: 600px;
+    margin-right: 50px;
+  }
+
+  .details {
+    max-width: 590px;
+    margin-top: 32px;
+
+    h1 {
+      @include font700;
+
+      font-size: 44px;
+      margin-bottom: 30px;
+    }
+
+    .color {
+      margin-bottom: 20px;
+
+      p {
+        @include font700;
+        font-size: 18px;
+      }
+
+      ul {
+        display: flex;
+        margin-top: 20px;
+      }
+    }
+
+    span {
+      @include font500;
+      font-size: 18px;
+      color: $gray-text;
+    }
+
+    .price {
+      @include font700;
+      margin-top: 30px;
+      font-size: 44px;
+    }
+
+    .buttons {
+      @include flexible;
+      margin-top: 50px;
+      justify-content: space-between;
+      gap: 20px;
+
+      Button {
+        width: 285px;
+        height: 58px;
+      }
+    }
+  }
+}

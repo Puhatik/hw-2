@@ -1,0 +1,15 @@
+@import "../styles/normilize.scss";
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  
+}
+
+.wrapper {
+  background: #ffffff;
+  margin: auto 100px;
+  width: calc(100vw - 100px);
+  max-width: 1240px;
+}

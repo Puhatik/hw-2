@@ -1,0 +1,13 @@
+@import '../../../../../styles/variables.scss';
+
+.counter {
+  @include font700;
+
+  border-radius: 20px;
+  border: 0;
+  padding: 4.5px 16px;
+  background-color: #F9F9F9;
+  color: $green;
+
+  font-size: 16px;
+}

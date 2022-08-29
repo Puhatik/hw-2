@@ -1,0 +1,38 @@
+@import '../../../src/styles/variables.scss';
+
+.button {
+  @include font700;
+  font-size: 18px;
+
+  display: inline-block;
+
+  padding: 15px 28px;
+  min-width: 100px;
+  text-align: center;
+  border: 0;
+
+  cursor: pointer;
+  color: $white;
+
+  &:hover {
+    background-color: $light-green;
+  }
+
+  &:disabled {
+    background-color: #D9D9D9;
+  }
+}
+
+.primary {
+  background-color: $green;
+}
+
+.secondary {
+  border: 2px solid $gray-line;
+  background-color: $white;
+  color: $black;
+
+  &:hover {
+    background-color: $gray-line;
+  }
+}
