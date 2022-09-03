@@ -1,8 +1,9 @@
 @import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
 
 .items {
   margin-top: 50px;
-  
+
   p {
     @include font700;
     font-size: 32px;

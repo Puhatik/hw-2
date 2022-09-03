@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import Card from '@components/Card/Card';
 import { Link } from 'react-router-dom';
+import { itemType } from 'src/App/App';
 
-import { itemType } from '../../App/App';
 import styles from './Items.module.scss';
 
 type ItemsProps = {
@@ -14,7 +14,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
   return (
     <div className={styles.items}>
       {items.map((item: itemType) => (
-        <Link key={item.id} to={`/products/${item.category}/${item.id}`}>
+        <Link key={item.id} to={`/products/${item.id}`}>
           <Card
             key={item.id}
             image={item.image}

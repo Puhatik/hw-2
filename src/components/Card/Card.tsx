@@ -21,15 +21,15 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div onClick={onClick} className={styles.card}>
-      <img src={image} />
-      <div className={styles.description}>
-        <p className={styles.category}>{category}</p>
+      <img src={image} alt="cardImg" />
+      <div className={styles.card_description}>
+        <p className={styles.card_description_category}>{category}</p>
         <h2>{title}</h2>
         <span>{content}</span>
-        <p className={styles.price}>${price}</p>
+        <p className={styles.card_description_price}>${price}</p>
       </div>
     </div>
   );
 };
 
-export default Card;
+export default React.memo(Card);

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { NavLink, Link } from 'react-router-dom';
+import cartSvg from '@assets/img/cart.svg';
+import logoSvg from '@assets/img/Lalasia-logo.svg';
+import userSvg from '@assets/img/user.svg';
+import { NavLink } from 'react-router-dom';
 
-import cartSvg from '../../assets/img/cart.svg';
-import logoSvg from '../../assets/img/Lalasia-logo.svg';
-import userSvg from '../../assets/img/user.svg';
 import styles from './Header.module.scss';
 
 type HeaderProps = {};
@@ -50,4 +50,4 @@ const Header: React.FC<HeaderProps> = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

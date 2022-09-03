@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const cn = classNames({
     [`${styles.className}`]: className,
-    [styles[color]]: color,
+    [styles[`button_${color}`]]: true,
     [styles.disabled]: loading || disabled,
     [styles.button]: true,
   });
@@ -50,4 +50,4 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default React.memo(Button);

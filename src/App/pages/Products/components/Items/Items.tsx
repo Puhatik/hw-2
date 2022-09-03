@@ -1,4 +1,6 @@
-import Card from '@components/Card/Card';
+import React from 'react';
+
+import Card from '@components/Card';
 import { Link } from 'react-router-dom';
 
 import styles from './Items.module.scss';
@@ -25,4 +27,4 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
   );
 };
 
-export default Items;
+export default React.memo(Items);

@@ -1,28 +1,6 @@
 $green: #518581;
-$light-green: #85AAA7;
-$white: #FFFFFF;
+$light-green: #85aaa7;
+$white: #ffffff;
 $black: #000;
-$gray-line: #F3F3F3;
-$gray-text: #AFADB5;
-
-@mixin font($size: false, $colour: false, $weight: false,  $lh: false) {
-  @if $size { font-size: $size; }
-  @if $colour { color: $colour; }
-  @if $weight { font-weight: $weight; }
-  @if $lh { line-height: $lh; }
-}
-
-@mixin font500 {
-  font-weight: 500;
-  line-height: 180%;
-}
-
-@mixin font700 {
-  font-weight: 700;
-  line-height: 130%;
-}
-
-@mixin flexible {
-  display: flex;
-  align-items: center;
-}
+$gray-line: #f3f3f3;
+$gray-text: #afadb5;

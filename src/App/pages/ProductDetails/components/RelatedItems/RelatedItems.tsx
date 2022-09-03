@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Items from '@components/Items/Items';
+import Items from '@components/Items';
 
 import { ProductContext } from '../../ProductDetails';
 import styles from './RelatedItems.module.scss';
@@ -16,4 +16,4 @@ const RelatedItems = () => {
   );
 };
 
-export default RelatedItems;
+export default React.memo(RelatedItems);

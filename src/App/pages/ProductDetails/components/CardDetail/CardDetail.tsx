@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button, { ButtonColor } from '@components/Button/Button';
+import Button, { ButtonColor } from '@components/Button';
 
 import { ProductContext } from '../../ProductDetails';
 import styles from './CardDetail.module.scss';
@@ -10,12 +10,12 @@ const CardDetail = () => {
 
   return (
     <div className={styles.card}>
-      <img src={item.image} />
-      <div className={styles.details}>
+      <img src={item.image} alt="itemImg" />
+      <div className={styles.card_details}>
         <h1>{item.title}</h1>
         <span>{item.description}</span>
-        <p className={styles.price}>${item.price}</p>
-        <div className={styles.buttons}>
+        <p className={styles.card_details_price}>${item.price}</p>
+        <div className={styles.card_details_buttons}>
           <Button color={ButtonColor.primary}>Buy now</Button>
           <Button color={ButtonColor.secondary}>Add to Chart</Button>
         </div>
@@ -24,4 +24,4 @@ const CardDetail = () => {
   );
 };
 
-export default CardDetail;
+export default React.memo(CardDetail);

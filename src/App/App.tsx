@@ -1,13 +1,12 @@
 import * as React from 'react';
 
-import Header from '@components/Header/Header';
-import ScrollToTop from '@components/ScrollToTop/ScrollToTop';
-import axios from 'axios';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import Header from '@components/Header';
+import ScrollToTop from '@components/ScrollToTop';
+import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 
 import styles from './App.module.scss';
-import ProductDetails from './pages/ProductDetails/ProductDetails';
-import Products from './pages/Products/Products';
+import ProductDetails from './pages/ProductDetails';
+import Products from './pages/Products';
 
 export type itemType = {
   id: number;
@@ -22,35 +21,20 @@ export type itemType = {
   };
 };
 
-interface IItemsContext {
-  items: itemType[];
-}
-
-export const ItemsContext = React.createContext<IItemsContext>({ items: [] });
-
 function App() {
-  const [items, setItems] = React.useState<itemType[]>([]);
-
-  React.useEffect(() => {
-    const apiUrl = 'https://fakestoreapi.com/products';
-    axios.get(apiUrl).then((resp) => {
-      setItems(resp.data);
-    });
-  }, []);
-
   return (
     <div className={styles.wrapper}>
-      <ItemsContext.Provider value={{ items }}>
+      <BrowserRouter>
         <Header />
 
         <ScrollToTop>
           <Routes>
             <Route path="/" element={<Products />} />
-            <Route path="products/:category/:id" element={<ProductDetails />} />
+            <Route path="products/:id" element={<ProductDetails />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </ScrollToTop>
-      </ItemsContext.Provider>
+      </BrowserRouter>
     </div>
   );
 }

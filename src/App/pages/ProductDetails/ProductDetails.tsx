@@ -1,11 +1,13 @@
 import React from 'react';
 
+import loaderL from '@assets/img/LoaderL.svg';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { itemType } from 'src/App/App';
 
-import CardDetail from './components/CardDetail/CardDetail';
-import RelatedItems from './components/RelatedItems/RelatedItems';
+import CardDetail from './components/CardDetail';
+import RelatedItems from './components/RelatedItems';
+import styles from './ProductDetails.module.scss';
 
 interface IProductContext {
   categoryItems: itemType[];
@@ -29,7 +31,7 @@ export const ProductContext = React.createContext<IProductContext>({
 });
 
 const ProductDetails = () => {
-  const { id, category } = useParams();
+  const { id } = useParams();
 
   const [item, setItem] = React.useState<itemType>({
     id: 0,
@@ -45,34 +47,41 @@ const ProductDetails = () => {
   });
 
   const [categoryItems, setCategoryItems] = React.useState<itemType[]>([]);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   const fetchItem = async () => {
+    setIsLoading(true);
     await axios
       .get(`https://fakestoreapi.com/products/${id}`)
       .then((response) => {
         setItem(response.data);
-      });
-  };
-
-  const fetchCategory = async () => {
-    await axios
-      .get(`https://fakestoreapi.com/products/category/${category}`)
-      .then((response) => {
-        const result = response.data.filter((item: itemType) => item.id != id);
-        setCategoryItems(result.slice(0, 3));
+        axios
+          .get(
+            `https://fakestoreapi.com/products/category/${response.data.category}`
+          )
+          .then((resp) => {
+            const result = resp.data.filter((item: itemType) => item.id !== id);
+            setCategoryItems(result.slice(0, 3));
+            setIsLoading(false);
+          });
       });
   };
 
   React.useEffect(() => {
     fetchItem();
-    fetchCategory();
   }, [id]);
 
   return (
-    <ProductContext.Provider value={{ categoryItems, item }}>
-      <CardDetail />
-      <RelatedItems />
-    </ProductContext.Provider>
+    <>
+      {isLoading ? (
+        <img className={styles.loader} src={loaderL} alt="Loader" />
+      ) : (
+        <ProductContext.Provider value={{ categoryItems, item }}>
+          <CardDetail />
+          <RelatedItems />
+        </ProductContext.Provider>
+      )}
+    </>
   );
 };
 
