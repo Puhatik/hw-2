@@ -1,19 +1,20 @@
 import * as React from 'react';
 
 import Card from '@components/Card/Card';
+import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
-import { itemType } from 'src/App/App';
+import { ItemTypeModel } from 'src/store/models/Products/ProductItem';
 
 import styles from './Items.module.scss';
 
 type ItemsProps = {
-  items: itemType[];
+  items: ItemTypeModel[];
 };
 
 const Items: React.FC<ItemsProps> = ({ items }) => {
   return (
     <div className={styles.items}>
-      {items.map((item: itemType) => (
+      {items.map((item: ItemTypeModel) => (
         <Link key={item.id} to={`/products/${item.id}`}>
           <Card
             key={item.id}
@@ -28,4 +29,4 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
   );
 };
 
-export default Items;
+export default observer(Items);

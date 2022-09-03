@@ -1,6 +1,7 @@
 import React from 'react';
 
 import filterSvg from '@assets/img/filter.svg';
+import { observer } from 'mobx-react-lite';
 
 import styles from './Filter.module.scss';
 
@@ -13,4 +14,4 @@ const Filter = () => {
   );
 };
 
-export default React.memo(Filter);
+export default observer(Filter);

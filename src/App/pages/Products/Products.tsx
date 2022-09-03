@@ -2,26 +2,16 @@ import React from 'react';
 
 import loaderL from '@assets/img/LoaderL.svg';
 import Items from '@components/Items';
-import axios from 'axios';
-import { itemType } from 'src/App/App';
+import { observer } from 'mobx-react-lite';
 
+import { productsStore } from '../../../store/ProductsStore';
 import Search from '../Products/components/Search';
 import Counter from './components/Counter';
 import Filter from './components/Filter';
 import styles from './Products.module.scss';
 
 const Products = () => {
-  const [items, setItems] = React.useState<itemType[]>([]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
-
-  React.useEffect(() => {
-    const apiUrl = 'https://fakestoreapi.com/products';
-    setIsLoading(true);
-    axios.get(apiUrl).then((resp) => {
-      setItems(resp.data);
-      setIsLoading(false);
-    });
-  }, []);
+  const { isLoading, products } = productsStore;
 
   return (
     <>
@@ -44,14 +34,14 @@ const Products = () => {
 
           <div className={styles.title}>
             <p>Total Product</p>
-            <Counter count={items.length} />
+            <Counter count={products.length} />
           </div>
 
-          <Items items={items} />
+          <Items items={products} />
         </>
       )}
     </>
   );
 };
 
-export default Products;
+export default observer(Products);

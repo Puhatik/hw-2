@@ -8,19 +8,6 @@ import styles from './App.module.scss';
 import ProductDetails from './pages/ProductDetails';
 import Products from './pages/Products';
 
-export type itemType = {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  description: string;
-  category: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-};
-
 function App() {
   return (
     <div className={styles.wrapper}>

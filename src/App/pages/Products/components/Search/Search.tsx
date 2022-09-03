@@ -3,6 +3,7 @@ import React from 'react';
 import searchSvg from '@assets/img/search.svg';
 import Button, { ButtonColor } from '@components/Button';
 import Input from '@components/Input';
+import { observer } from 'mobx-react-lite';
 
 import styles from './Search.module.scss';
 
@@ -16,4 +17,4 @@ const Search = () => {
   );
 };
 
-export default React.memo(Search);
+export default observer(Search);

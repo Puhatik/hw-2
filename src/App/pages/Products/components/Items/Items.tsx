@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Card from '@components/Card';
+import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
 
 import styles from './Items.module.scss';
@@ -27,4 +28,4 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
   );
 };
 
-export default React.memo(Items);
+export default observer(Items);

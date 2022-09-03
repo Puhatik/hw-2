@@ -1,19 +1,31 @@
 import React from 'react';
 
 import Items from '@components/Items';
+import { observer } from 'mobx-react-lite';
 
-import { ProductContext } from '../../ProductDetails';
+import { categoryStore } from '../../../../../store/CategoryStore';
 import styles from './RelatedItems.module.scss';
 
-const RelatedItems = () => {
-  const { categoryItems } = React.useContext(ProductContext);
+type RelatedItemsProps = {
+  category: string;
+};
+
+const RelatedItems: React.FC<RelatedItemsProps> = ({ category }) => {
+  const { products, setCategory } = categoryStore;
+
+  console.log(category, products);
+
+  React.useEffect(() => {
+    setCategory(category);
+    console.log('succses');
+  }, []);
 
   return (
     <div className={styles.items}>
       <p>Related Items</p>
-      <Items items={categoryItems} />
+      <Items items={products} />
     </div>
   );
 };
 
-export default React.memo(RelatedItems);
+export default observer(RelatedItems);
