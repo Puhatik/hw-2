@@ -1,0 +1,14 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+.items {
+  margin-top: 50px;
+
+  p {
+    @include font700;
+    font-size: 32px;
+    letter-spacing: 0.01em;
+
+    margin-bottom: 30px;
+  }
+}

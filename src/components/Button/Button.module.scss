@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.button {
+  @include font700;
+  font-size: 18px;
+
+  display: inline-block;
+
+  padding: 15px 28px;
+  min-width: 100px;
+  text-align: center;
+  border: 0;
+
+  cursor: pointer;
+  color: $white;
+
+  &_primary {
+    background-color: $green;
+  }
+
+  &_secondary {
+    border: 2px solid $gray-line;
+    background-color: $white;
+    color: $black;
+
+    &:hover {
+      background-color: $gray-line;
+    }
+  }
+
+  &:hover {
+    background-color: $light-green;
+  }
+
+  &:disabled {
+    background-color: #d9d9d9;
+  }
+}

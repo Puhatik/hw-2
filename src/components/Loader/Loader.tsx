@@ -1,5 +1,6 @@
-import React from 'react'
-import classNames from 'classnames'
+import React from 'react';
+
+import classNames from 'classnames';
 
 enum LoaderSize {
   s = 's',
@@ -13,24 +14,14 @@ type LoaderProps = {
   className?: string;
 };
 
+const Loader: React.FC<LoaderProps> = ({ loading = true, size, className }) => {
+  const cn = classNames({
+    [`${className}`]: className,
+    [`loader_size-${size}`]: size,
+    'loader_size-m': !size,
+  });
 
-export const Loader: React.FC<LoaderProps> = ({
-  loading = true,
-  size,
-  className
-}) => {
-
-  const cn = classNames(
-    {
-      [`${className}`]: className,
-      [`loader_size-${size}`]: size, 
-      'loader_size-m': !size
-    }
-  )
-
-  return (
-    <>
-      {loading && (<img className={cn}/>)}
-    </>
-  )
+  return <>{loading && <img className={cn} />}</>;
 };
+
+export default Loader;

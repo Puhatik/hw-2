@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.card {
+  @include font700;
+
+  height: 600px;
+
+  justify-content: center;
+  max-width: 394px;
+
+  img {
+    width: 394px;
+    height: 360px;
+    margin-bottom: 26px;
+  }
+
+  &_description {
+    flex: 1;
+
+    h2 {
+      font-size: 26px;
+      line-height: 130%;
+    }
+
+    &_price {
+      margin-top: 18px;
+
+      font-size: 24px;
+    }
+
+    &_category {
+      margin-bottom: 14px;
+
+      color: $gray-text;
+      font-size: 18px;
+    }
+  }
+}

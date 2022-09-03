@@ -1,0 +1,49 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/mixins.scss';
+
+.card {
+  display: flex;
+  margin-top: 100px;
+
+  img {
+    width: 600px;
+    height: 600px;
+    margin-right: 50px;
+  }
+
+  &_details {
+    max-width: 590px;
+    margin-top: 32px;
+
+    h1 {
+      @include font700;
+
+      font-size: 44px;
+      margin-bottom: 30px;
+    }
+
+    span {
+      @include font500;
+      font-size: 18px;
+      color: $gray-text;
+    }
+
+    &_price {
+      @include font700;
+      margin-top: 30px;
+      font-size: 44px;
+    }
+
+    &_buttons {
+      @include flexible;
+      margin-top: 50px;
+      justify-content: space-between;
+      gap: 20px;
+
+      Button {
+        width: 285px;
+        height: 58px;
+      }
+    }
+  }
+}

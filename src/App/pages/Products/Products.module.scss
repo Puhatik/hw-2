@@ -1,0 +1,52 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.loader {
+  height: 60px;
+  width: 56px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.promo {
+  text-align: center;
+  margin-top: 100px;
+
+  p {
+    @include font700;
+
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+
+  span {
+    @include font500;
+
+    display: inline-block;
+    font-size: 18px;
+    color: $gray-text;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+}
+
+.options {
+  @include flexible;
+
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.title {
+  @include flexible;
+
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 50px;
+
+  p {
+    @include font700;
+    font-size: 44px;
+  }
+}
